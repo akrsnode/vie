@@ -10,4 +10,21 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #FDFDFD;
 }
+
+.container {
+  margin: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.dayCard {
+  width: 100%;
+  padding: 0 0 0 15%;
+}
 /*# sourceMappingURL=App.css.map */

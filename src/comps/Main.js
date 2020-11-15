@@ -1,25 +1,44 @@
-import Header from './Header';
+import DayCard from './DayCard';
+import styled from 'styled-components';
 
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const monthNames = [ "January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December" ];
-const date = new Date();
-const today = {
-  dayNum: date.getDate(),
-  dayName: dayNames[date.getDay()],
-  monthName: monthNames[date.getMonth()-1]
-}
+const DayButton = styled.button`
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  color: #FDFDFD;
+  opacity: .25;
+  font-weight: 900;
+  font-size: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 3rem 2rem;
+  padding-bottom: 8px;
+  ${props => props.active === true && `
+    opacity: 1;
+    &:after {
+      content: "";
+      width: 60%;
+      height: 3px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      background-color: #AA0AE1;
+      transform: translateX(-50%);
+    }
+  `}
+`;
 
 function Main() {
-  console.log(today.dayName)
   return(
-    <>
-      <Header 
-        day={today.dayName}
-        num={today.dayNum}
-        month={today.monthName}
-      />
-    </>
+    <div className="container">
+      <DayButton active={true}>Today</DayButton>
+      <DayButton active={false}>Tomorrow</DayButton>
+      <DayCard />
+    </div>
   )
 }
 
